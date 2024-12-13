@@ -202,7 +202,7 @@ export class HotTubAccessory {
                 attrs: {
                     power: 0,
                     filter: 0,
-                    waves: 0,
+                    wave: 0,
                     heat: 0
                 }
             })
@@ -297,7 +297,7 @@ export class HotTubAccessory {
             headers: this.getHeader(),
             body: JSON.stringify({
                 attrs: {
-                    wave_power: this.currentState.wavesOn
+                    wave: this.currentState.wavesOn
                 }
             })
         })
@@ -319,7 +319,7 @@ export class HotTubAccessory {
                 headers: this.getHeader(),
                 body: JSON.stringify({
                     attrs: {
-                        filter_power: this.currentState.heatingOn
+                        filter: this.currentState.heatingOn
                     }
                 })
             })
@@ -333,7 +333,7 @@ export class HotTubAccessory {
             headers: this.getHeader(),
             body: JSON.stringify({
                 attrs: {
-                    filter_power: this.currentState.filterOn
+                    filter: this.currentState.filterOn
                 }
             })
         })
