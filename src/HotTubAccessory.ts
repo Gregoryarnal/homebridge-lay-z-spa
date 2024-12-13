@@ -157,11 +157,11 @@ export class HotTubAccessory {
                 this.currentState.lastFetch = new Date()
             } else {
                 this.currentState.power = result.attr.power
-                this.currentState.currentTemp = result.attr.temp_now
-                this.currentState.targetTemp = result.attr.temp_set
-                this.currentState.heatingOn = result.attr.heat_power
-                this.currentState.filterOn = result.attr.filter_power
-                this.currentState.wavesOn = result.attr.wave_power
+                this.currentState.currentTemp = result.attr.Tnow
+                this.currentState.targetTemp = result.attr.Tset
+                this.currentState.heatingOn = result.attr.heat
+                this.currentState.filterOn = result.attr.filter
+                this.currentState.wavesOn = result.attr.wave
                 this.currentState.lastFetch = new Date()
             }
 
@@ -201,9 +201,9 @@ export class HotTubAccessory {
             body = JSON.stringify({
                 attrs: {
                     power: 0,
-                    filter_power: 0,
-                    waves_power: 0,
-                    heat_power: 0
+                    filter: 0,
+                    waves: 0,
+                    heat: 0
                 }
             })
         }
@@ -231,7 +231,7 @@ export class HotTubAccessory {
             headers: this.getHeader(),
             body: JSON.stringify({
                 attrs: {
-                    temp_set: this.currentState.targetTemp
+                    Tset: this.currentState.targetTemp
                 }
             })
         })
@@ -260,8 +260,8 @@ export class HotTubAccessory {
             headers: this.getHeader(),
             body: JSON.stringify({
                 attrs: {
-                    heat_power: this.currentState.heatingOn,
-                    filter_power: this.currentState.heatingOn,
+                    heat: this.currentState.heatingOn,
+                    filter: this.currentState.heatingOn,
                 }
             })
         })
@@ -272,8 +272,8 @@ export class HotTubAccessory {
                 headers: this.getHeader(),
                 body: JSON.stringify({
                     attrs: {
-                        heat_power: 0,
-                        filter_power: 0,
+                        heat: 0,
+                        filter: 0,
                     }
                 })
             })
